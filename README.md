@@ -29,10 +29,10 @@ TMDB API-KEY:
 
 
 
-# $${\color{Blue} \textbf {Deploy Netflix Clone on Cloud using Jenkins - DevSecOps Project!}}$$
+# Deploy Netflix Clone on Cloud using Jenkins - DevSecOps Project!
 
 
-## $${\color {red} \textbf {Phase 1: Initial Setup and Deployment}}$$
+## Phase 1: Initial Setup and Deployment
 
 **Step 1: Launch EC2 (Ubuntu 22.04):**
 
@@ -84,7 +84,7 @@ docker run -d --name netflix -p 8081:80 netflix:latest
 
 ```
 
-## $${\color {red} \textbf {Phase 2: Security}}$$
+## Phase 2: Security
 
 1. **Install SonarQube and Trivy:**
     - Install SonarQube and Trivy on the EC2 instance to scan for vulnerabilities.
@@ -120,7 +120,7 @@ docker run -d --name netflix -p 8081:80 netflix:latest
     - Integrate SonarQube with your CI/CD pipeline.
     - Configure SonarQube to analyze code for quality and security issues.
 
-## $${\color {red} \textbf {Phase 3: CI/CD Setup}}$$
+## Phase 3: CI/CD Setup
 
 1. **Install Jenkins for Automation:**
     - Install Jenkins on the EC2 instance to automate deployment:
@@ -128,13 +128,7 @@ docker run -d --name netflix -p 8081:80 netflix:latest
     
     ```bash
     sudo apt update
-    sudo apt install fontconfig openjdk-17-jre
-    java -version
-    openjdk version "17.0.8" 2023-07-18
-    OpenJDK Runtime Environment (build 17.0.8+7-Debian-1deb12u1)
-    OpenJDK 64-Bit Server VM (build 17.0.8+7-Debian-1deb12u1, mixed mode, sharing)
-    
-    #jenkins
+    sudo apt install fontconfig openjdk-21-jre -y
     sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
     https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
     echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
