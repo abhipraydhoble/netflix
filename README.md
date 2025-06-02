@@ -387,13 +387,12 @@ sudo systemctl restart jenkins
 
 ```
 
-### $${\color {red} \textbf {Phase 4: Monitoring}}$$
+## Phase 4: Monitoring
 
 1. **Install Prometheus and Grafana:**
 
-   Set up Prometheus and Grafana to monitor your application.
 
-   ### $${\color {Magenta} \textbf {Prometheus:}}$$
+   ### Prometheus:
 
    First, create a dedicated Linux user for Prometheus and download Prometheus:
 
@@ -481,7 +480,7 @@ sudo systemctl restart jenkins
 
    `http://<your-server-ip>:9090`
 
-   #### $${\color{Magenta} \textbf {Installing Node Exporter:}}$$
+   ### Installing Node Exporter:
 
    Create a system user for Node Exporter and download Node Exporter:
 
@@ -585,7 +584,7 @@ sudo systemctl restart jenkins
    `http://<your-prometheus-ip>:9090/targets`
 
 
-### $${\color {Magenta} \textbf {Grafana}}$$
+### Grafana:
 
 **Install Grafana on Ubuntu 22.04 and Set it up to Work with Prometheus**
 
@@ -709,7 +708,7 @@ That's it! You've successfully installed and set up Grafana to work with Prometh
 1. **Implement Notification Services:**
     - Set up email notifications in Jenkins or other notification mechanisms.
 
-## $${\color {red} \textbf  {Phase 6: Kubernetes}}$$
+## Phase 6: Kubernetes:
 
 ## Create Kubernetes Cluster with Nodegroups
 
