@@ -1,10 +1,4 @@
-Prerequisites:
-- Jenkins Serve
-- SonarQube
-- Docker
-- Trivy
-  
-
+# Manual Steps
 
 TMDB API-KEY: 
 ````
@@ -119,6 +113,8 @@ docker run -d --name netflix -p 8081:80 netflix:latest
 2. **Integrate SonarQube and Configure:**
     - Integrate SonarQube with your CI/CD pipeline.
     - Configure SonarQube to analyze code for quality and security issues.
+
+# Automation
 
 ## Phase 3: CI/CD Setup
 
