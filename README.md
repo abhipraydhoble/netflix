@@ -39,7 +39,7 @@ TMDB API-KEY:
 - Clone your application's code repository onto the EC2 instance:
     
     ```bash
-    git clone https://github.com/abhipraydhoble/netflix/tree/main
+    git clone https://github.com/abhipraydhoble/netflix.git
     ```
     
 
