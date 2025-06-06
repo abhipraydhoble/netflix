@@ -94,10 +94,11 @@ Goto Manage Jenkins → Tools → Install JDK(17) and NodeJs(16)→ Click on App
 #### Docker
 ![image](https://github.com/user-attachments/assets/289c2e2a-df33-476b-a195-d584db3ef03e)
 
-Step8: Configure Sonar Server: Manage Jenkins->System
-      - name: "sonar-server"
-      - url:
-      - token:
+## Step8: Configure Sonar Server: Manage Jenkins->System
+   - name: "sonar-server"
+   - url:
+   - token:
+![image](https://github.com/user-attachments/assets/c5d05628-1502-4a92-b722-7ad3eed5d587)
 
 Step9: Create Pipeline
 
