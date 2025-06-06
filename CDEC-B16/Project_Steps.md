@@ -46,11 +46,11 @@ echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main |
 sudo apt-get update
 sudo apt-get install trivy -y
 ````
+## Step3: Connect to Jenkins 
 
-Step3: Connect to Jenkins 
-
-Step4: Connect to SonarQube
-      - Admin->my account->security->generate token
+## Step4: Connect to SonarQube
+   - Admin->my account->security->generate token
+![image](https://github.com/user-attachments/assets/26cb309d-aa3c-4a74-873f-9e87b2fcce00)
 
 Step5: In Jenkins
      - Manage Jenkins: Credentials
@@ -76,11 +76,23 @@ docker
 stage view
 ````
 
-Step7: Install  Tools: Manage Jenkins->Tools
-       - add jdk: "jdk17" ->install from adoptium.net->version- 17
-       - add SonarQube Scanner: "sonar-scanner"
-       - add NodeJs: "node16" -> version 16
-       - docker: "docker"
+## Step7: Install  Tools: Manage Jenkins->Tools
+   - add jdk: "jdk17" ->install from adoptium.net->version- 17
+   - add SonarQube Scanner: "sonar-scanner"
+   - add NodeJs: "node16" -> version 16
+   - docker: "docker"
+
+### **Configure Java and Nodejs in Global Tool Configuration**
+Goto Manage Jenkins → Tools → Install JDK(17) and NodeJs(16)→ Click on Apply and Save
+#### Jdk
+![image](https://github.com/user-attachments/assets/fe876745-d024-403c-806b-4a7d8c1dba11)
+#### SonarQube-Scanner
+![image](https://github.com/user-attachments/assets/24589963-9a7e-4d6a-9598-66580c195e30)
+
+#### Node-js
+![image](https://github.com/user-attachments/assets/51617874-be4d-438c-a93e-5a5d9e5781fa)
+#### Docker
+![image](https://github.com/user-attachments/assets/289c2e2a-df33-476b-a195-d584db3ef03e)
 
 Step8: Configure Sonar Server: Manage Jenkins->System
       - name: "sonar-server"
