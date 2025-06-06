@@ -100,12 +100,79 @@ Goto Manage Jenkins → Tools → Install JDK(17) and NodeJs(16)→ Click on App
    - token:
 ![image](https://github.com/user-attachments/assets/c5d05628-1502-4a92-b722-7ad3eed5d587)
 
-Step9: Create Pipeline
+## Step9: Create Pipeline
+````
+pipeline {
+    agent any
+    tools {
+        jdk 'jdk17'
+        nodejs 'node16'
+    }
+    environment {
+        SCANNER_HOME = tool 'sonar-scanner'
+    }
+    stages {
 
+        stage('Code-Pull') {
+            steps {
+                git branch: 'main', url: 'https://github.com/abhipraydhoble/netflix.git'
+            }
+        }
+        stage("Sonarqube Analysis") {
+            steps {
+                withSonarQubeEnv('sonar-server') {
+                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Netflix \
+                    -Dsonar.projectKey=Netflix'''
+                }
+            }
+        }
+        stage("quality gate") {
+            steps {
+                script {
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
+                }
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                sh "npm install"
+            }
+        }
+       stage('TRIVY FS SCAN') {
+            steps {
+                sh "trivy fs . > trivyfs.txt"
+            }
+        }
+        stage("Docker Build & Push"){
+            steps{
+                script{
+                   withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker'){   
+                       sh "docker build --build-arg TMDB_V3_API_KEY=020581a34f3ab93b1360a55bea864bd9 -t abhipraydh96/moviesite ."
+                       sh "docker push abhipraydh96/moviesite "
+                    }
+                }
+            }
+        }
+        stage("TRIVY"){
+            steps{
+                sh "trivy image abhipraydh96/moviesite > trivyimage.txt" 
+            }
+        }
+        stage('Deploy to container'){
+            steps{
+                sh 'docker run -d --name netflix -p 8081:80 abhipraydh96/moviesite'
+            }
+        }
+        
+    }
+}
+````
 Note: 
 - ensure jenkins user has permission to create container
-   # sudo usermod -aG docker jenkins
-   # newgrp docker
-   # sudo chmod 777 /var/run/docker.sock
+   ````
+   sudo usermod -aG docker jenkins
+   newgrp docker
+   sudo chmod 777 /var/run/docker.sock
+   ````
    
 - Verify all the names before running pipeline
