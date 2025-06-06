@@ -57,13 +57,24 @@ Step5: In Jenkins
        - Sonar-Token
        - Git-Cred
        - Docker-Cred
+## Step6: Install Required Plugins:
+   **Install below plugins**
 
-Step6: Install Required Plugins:
-       - Eclipse Temurin Installer 
-       - SonarQube Scanner
-       - NodeJs Plugin
-       - docker
-       - stage view
+````
+Eclipse Temurin Installer 
+````
+````
+SonarQube Scanner
+````
+````
+NodeJs Plugin
+````
+````
+docker
+````
+````
+stage view
+````
 
 Step7: Install  Tools: Manage Jenkins->Tools
        - add jdk: "jdk17" ->install from adoptium.net->version- 17
