@@ -1,15 +1,15 @@
-Project: Netflix App using CICD pipeline
+# Project: Netflix App using CICD pipeline
 
-Step1: Launch EC2 instance
-       - AMI: Ubuntu
-       - Instance_Type: t2.medium
-       - Volume: 30 GB
+## Step1: Launch EC2 instance
+ - AMI: Ubuntu
+ - Instance_Type: t2.medium
+ - Volume: 30 GB
 
-Step2: Connect To Instance
-      - Install Jenkins
-      - Install Docker
-      - Install SonarQube    # used for code quality testing
-      - Install Trivy        # used to scan docker images
+## Step2: Connect To Instance
+ - Install Jenkins
+ - Install Docker
+ - Install SonarQube    # used for code quality testing
+ - Install Trivy        # used to scan docker images
       
 **Jenkins**
 ````
